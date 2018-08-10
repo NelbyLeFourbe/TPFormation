@@ -2,14 +2,14 @@ package sopra.promo404.formation.dao;
 
 import java.util.List;
 
-public interface IDao <T,PK> {
+public interface IDAO<T, PK> {
 	List<T> findAll();
-	
-	T find(PK id);
-	
-	void save(T obj);
-	
-	void delete(T obj);
-		
+
+	T findById(PK id);
+
+	T save(T entity);
+
+	void delete(T entity);
+
 	void deleteById(PK id);
 }
