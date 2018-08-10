@@ -1,30 +1,22 @@
 package sopra.promo404.formation.dao.jpa;
 
-import java.sql.Connection;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-
 import sopra.promo404.formation.app.Application;
-import sopra.promo404.formation.dao.IDaoEleve;
-import sopra.promo404.formation.model.Civilite;
+import sopra.promo404.formation.dao.IDaoOrdinateur;
 import sopra.promo404.formation.model.Eleve;
-import sopra.promo404.formation.model.Formateur;
+import sopra.promo404.formation.model.Ordinateur;
 
-public class DaoEleveJPA implements IDaoEleve{
+public class DaoOrdinateurJPA implements IDaoOrdinateur {
 
 	@Override
-	public List<Eleve> findAll() {
-List<Eleve> liste = new ArrayList<>();
+	public List<Ordinateur> findAll() {
+List<Ordinateur> liste = new ArrayList<>();
 		
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -34,7 +26,7 @@ List<Eleve> liste = new ArrayList<>();
 			tx = em.getTransaction();
 			tx.begin();
 			
-			Query query = em.createQuery("from Eleve", Eleve.class);
+			Query query = em.createQuery("from Produit", Ordinateur.class);
 			liste = query.getResultList();
 			
 			tx.commit(); 
@@ -54,9 +46,9 @@ List<Eleve> liste = new ArrayList<>();
 	
 
 	@Override
-	public Eleve findById(Long id) {
+	public Ordinateur findById(String code) {
 		
-		Eleve entity = null;
+		Ordinateur entity = null;
 		
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -66,7 +58,7 @@ List<Eleve> liste = new ArrayList<>();
 			tx = em.getTransaction();
 			tx.begin();
 			
-			entity = em.find(Eleve.class, id);
+			entity = em.find(Ordinateur.class, code);
 			
 			tx.commit(); 
 		} catch (Exception e) {
@@ -86,7 +78,7 @@ List<Eleve> liste = new ArrayList<>();
 	
 
 	@Override
-	public Eleve save(Eleve entity) {
+	public Ordinateur save(Ordinateur entity) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 		
@@ -95,7 +87,7 @@ List<Eleve> liste = new ArrayList<>();
 			tx = em.getTransaction();
 			tx.begin();
 			
-			if(entity.getId() == null) {
+			if(entity.getCode() == null) {
 				em.persist(entity);
 			} else {
 				entity = em.merge(entity);
@@ -118,7 +110,7 @@ List<Eleve> liste = new ArrayList<>();
 	
 
 	@Override
-	public void delete(Eleve entity) {
+	public void delete(Ordinateur entity) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 		
@@ -143,7 +135,7 @@ List<Eleve> liste = new ArrayList<>();
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String code) {
 		
 		EntityManager em = null;
 		EntityTransaction tx = null;
@@ -153,7 +145,7 @@ List<Eleve> liste = new ArrayList<>();
 			tx = em.getTransaction();
 			tx.begin();
 			
-			em.remove(em.find(Eleve.class, id));
+			em.remove(em.find(Ordinateur.class, code));
 			
 			tx.commit(); 
 		} catch (Exception e) {
@@ -168,6 +160,8 @@ List<Eleve> liste = new ArrayList<>();
 		}
 	}
 
+
 	
 	
 }
+
