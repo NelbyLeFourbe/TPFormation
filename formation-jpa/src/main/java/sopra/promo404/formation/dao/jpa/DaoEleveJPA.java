@@ -22,54 +22,35 @@ import sopra.promo404.formation.model.Formateur;
 public class DaoEleveJPA implements IDaoEleve{
 
 	@Override
-	List<> liste = new ArrayList<>();
-	
-	EntityManager em = null;
-	EntityTransaction tx = null;
-	
-	try {
-		em = Eshop.getInstance().getEmf().createEntityManager();
-		tx = em.getTransaction();
-		tx.begin();
-		
-		Query query = em.createQuery("from Produit", Produit.class);
-		liste = query.getResultList();
-		
-		tx.commit(); 
-	} catch (Exception e) {
-		e.printStackTrace();
-		if (tx != null) {
-			tx.rollback();
-		}
-	} finally {
-		if (em != null) {
-			em.close();
-		}
-	}
-	
-	return liste;
-}
-	
-
-	@Override
-	public Eleve find(Long id) {
+	public List<Eleve> findAll() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(Eleve obj) {
-		
+	public Eleve findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public void delete(Eleve obj) {
+	public Eleve save(Eleve entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(Eleve entity) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
 		
 	}
 
+	
 	
 }
