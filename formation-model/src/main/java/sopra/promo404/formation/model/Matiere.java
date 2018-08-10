@@ -32,8 +32,6 @@ public class Matiere {
 	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
 	@Transient
-	private Set<Matiere> matieres = new HashSet<>();
-	@Transient
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {

@@ -18,34 +18,21 @@ public class Adresse {
 	private String ville;
 	@Column(name= "Country")
 	private String pays;
-	@OneToOne
-	@JoinTable(name = "Computer_Student", uniqueConstraints = @UniqueConstraint(columnNames = { "Computeur_Code", "Student_Id" }),
-	joinColumns = @JoinColumn(name = "Student_Id"),
-	inverseJoinColumns = @JoinColumn(name = "Computeur_Code"))
-	private Personne personne;
 
 	public Adresse() {
 		super();
 	}
 
 
-	public Adresse(String rue, String codePostal, String ville, String pays, Personne personne) {
+	public Adresse(String rue, String codePostal, String ville, String pays) {
 		super();
 		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.pays = pays;
-		this.personne = personne;
+		
 	}
 
-
-	public Personne getPersonne() {
-		return personne;
-	}
-
-	public void setPersonne(Personne personne) {
-		this.personne = personne;
-	}
 
 	public String getRue() {
 		return rue;
