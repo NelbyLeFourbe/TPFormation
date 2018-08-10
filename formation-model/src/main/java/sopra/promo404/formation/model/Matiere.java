@@ -3,11 +3,29 @@ package sopra.promo404.formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "Subject")
 public class Matiere {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(name = "Name")
 	private String nom;
+	@Column(name = "Duration")
 	private int duree;
+	@Column(name = "Difficulty")
+	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
+	@Transient
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {
