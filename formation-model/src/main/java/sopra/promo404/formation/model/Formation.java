@@ -6,8 +6,12 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Training")
@@ -16,7 +20,10 @@ public class Formation {
 	private FormationId id;
 	@Column(name = "Duration")
 	private int duree;
-	@Transient
+	@ManyToMany
+	@JoinTable(name = "Training_Subject", joinColumns = { @JoinColumn(name = "customer_id"),
+			@JoinColumn(name = "promotion_id") }, inverseJoinColumns = @JoinColumn(name = "subject_id"), uniqueConstraints = @UniqueConstraint(columnNames = {
+					"customer_id", "promotion_id", "subject_id" }))
 	private List<Matiere> matieres = new ArrayList<>();
 
 	public Formation() {
