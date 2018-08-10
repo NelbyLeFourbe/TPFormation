@@ -3,14 +3,10 @@ package sopra.promo404.formation.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "Computers")
+@Table(name = "Computer")
 public class Ordinateur {
 	@Id
 	@Column(name = "Code", length = 10, nullable = false)
@@ -19,10 +15,7 @@ public class Ordinateur {
 	private int ram;
 	@Column(name = "Ssd", nullable = false)
 	private boolean ssd;
-	@OneToOne
-	@JoinTable(name = "Computer_Student", uniqueConstraints = @UniqueConstraint(columnNames = { "Computeur_Code", "Student_Id" }),
-	joinColumns = @JoinColumn(name = "Student_Id"),
-	inverseJoinColumns = @JoinColumn(name = "Computeur_Code"))
+
 	private Eleve eleve;
 
 	public Ordinateur() {

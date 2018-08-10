@@ -7,14 +7,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 
 @Entity
-@Table(name = "Student")
 @DiscriminatorValue("Student")
 public class Eleve extends Personne {
 	@Column(name = "Civility", nullable = false)
@@ -22,11 +16,9 @@ public class Eleve extends Personne {
 	private Civilite civilite;
 	@Column(name = "BirthDate", nullable = false)
 	private Date dtNaissance;
-	@ManyToOne
-	@JoinColumn(name = "Trainer_Id")
-	private Formateur formateur;	
-	@Column (name = "Computer")
-	@OneToOne(mappedBy = "Computer")
+
+	private Formateur formateur;
+
 	private Ordinateur ordinateur;
 
 	public Eleve() {

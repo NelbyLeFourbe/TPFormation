@@ -30,9 +30,6 @@ public class Matiere {
 	@Column(name = "Difficulty")
 	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
-	@ManyToMany
-	@JoinTable(name = "Subject_Training", uniqueConstraints = @UniqueConstraint(columnNames = { "Subject_Id",
-			"Training_Id" }), joinColumns = @JoinColumn(name = "Subject_Id"), inverseJoinColumns = @JoinColumn(name = "Training_Id"))
 	private Set<Matiere> matieres = new HashSet<>();
 	private List<Formateur> formateurs = new ArrayList<>();
 
