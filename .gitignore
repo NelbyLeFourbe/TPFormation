@@ -6,3 +6,11 @@ formation-model/target/
 formation-model/\.classpath
 
 formation-model/\.project
+
+formation-jpa/\.classpath
+
+formation-jpa/target/
+
+formation-jpa/\.settings/
+
+formation-jpa/\.project
