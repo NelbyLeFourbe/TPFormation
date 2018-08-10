@@ -1,8 +1,7 @@
 package sopra.promo404.formation.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -24,7 +23,7 @@ public class Ordinateur {
 	@JoinTable(name = "Computer_Student", uniqueConstraints = @UniqueConstraint(columnNames = { "Computeur_Code", "Student_Id" }),
 	joinColumns = @JoinColumn(name = "Student_Id"),
 	inverseJoinColumns = @JoinColumn(name = "Computeur_Code"))
-	private List<Eleve> eleve;
+	private Eleve eleve;
 
 	public Ordinateur() {
 		super();
@@ -61,13 +60,11 @@ public class Ordinateur {
 		this.ssd = ssd;
 	}
 
-	
-
-	public List<Eleve> getEleve() {
+	public Eleve getEleve() {
 		return eleve;
 	}
 
-	public void setEleve(List<Eleve> eleve) {
+	public void setEleve(Eleve eleve) {
 		this.eleve = eleve;
 	}
 
