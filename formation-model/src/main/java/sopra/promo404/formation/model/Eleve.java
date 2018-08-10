@@ -11,22 +11,22 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-//@Entity
+
+@Entity
 @Table(name = "Student")
 @DiscriminatorValue("Student")
 public class Eleve extends Personne {
-	@Column (name = "Civility", nullable = false)
+	@Column(name = "Civility", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Civilite civilite;
-	@Column (name = "BirthDate", nullable = false)
+	@Column(name = "BirthDate", nullable = false)
 	private Date dtNaissance;
-	@Column (name = "Trainer")
 	@ManyToOne
 	@JoinColumn(name = "Trainer_Id")
-	private Formateur formateur;	
+	private Formateur formateur;
 	@Transient
-	@Column (name = "Computer")
-	
+	@Column(name = "Computer")
+
 	private Ordinateur ordinateur;
 
 	public Eleve() {

@@ -8,13 +8,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name = "Personns")
-@Inheritance(strategy =InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "Personns_Type")
 public abstract class Personne {
 	@Id
-	@Column(name = "ID" , nullable = false)
+	@Column(name = "ID", nullable = false)
 	private Long id;
 	@Column(name = "LastName", length = 100, nullable = false)
 	private String nom;

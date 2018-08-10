@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-//@Entity
+@Entity
 @Table(name = "Training")
 public class Formation {
 	@EmbeddedId

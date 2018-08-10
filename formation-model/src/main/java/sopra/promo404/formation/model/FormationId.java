@@ -4,11 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @SuppressWarnings("serial")
-//@Embeddable
+@Embeddable
 public class FormationId implements Serializable {
 
 	@Column(name = "Customer")

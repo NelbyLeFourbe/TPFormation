@@ -1,7 +1,9 @@
 package sopra.promo404.formation.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +11,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Subject")
@@ -25,7 +30,10 @@ public class Matiere {
 	@Column(name = "Difficulty")
 	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
-	@Transient
+	@ManyToMany
+	@JoinTable(name = "Subject_Training", uniqueConstraints = @UniqueConstraint(columnNames = { "Subject_Id",
+			"Training_Id" }), joinColumns = @JoinColumn(name = "Subject_Id"), inverseJoinColumns = @JoinColumn(name = "Training_Id"))
+	private Set<Matiere> matieres = new HashSet<>();
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {
