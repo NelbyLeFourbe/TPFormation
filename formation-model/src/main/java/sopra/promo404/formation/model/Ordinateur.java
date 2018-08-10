@@ -1,10 +1,14 @@
 package sopra.promo404.formation.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "Computers")
@@ -16,9 +20,11 @@ public class Ordinateur {
 	private int ram;
 	@Column(name = "Ssd", nullable = false)
 	private boolean ssd;
-	@Transient
-	@Column(name = "Eleve", length = 100)
-	private Eleve eleve;
+	@OneToOne
+	@JoinTable(name = "Computer_Student", uniqueConstraints = @UniqueConstraint(columnNames = { "Computeur_Code", "Student_Id" }),
+	joinColumns = @JoinColumn(name = "Student_Id"),
+	inverseJoinColumns = @JoinColumn(name = "Computeur_Code"))
+	private List<Eleve> eleve;
 
 	public Ordinateur() {
 		super();
@@ -55,11 +61,13 @@ public class Ordinateur {
 		this.ssd = ssd;
 	}
 
-	public Eleve getEleve() {
+	
+
+	public List<Eleve> getEleve() {
 		return eleve;
 	}
 
-	public void setEleve(Eleve eleve) {
+	public void setEleve(List<Eleve> eleve) {
 		this.eleve = eleve;
 	}
 

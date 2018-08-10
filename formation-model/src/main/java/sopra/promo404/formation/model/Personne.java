@@ -2,6 +2,7 @@ package sopra.promo404.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -20,6 +21,7 @@ public abstract class Personne {
 	private String nom;
 	@Column(name = "FirstName", length = 100, nullable = false)
 	private String prenom;
+	@Embedded
 	@Column(name = "Adress", length = 100)
 	private Adresse adresse;
 

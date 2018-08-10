@@ -1,11 +1,10 @@
 package sopra.promo404.formation.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.Embeddable;
 
-@Entity
-@Table(name = "Adress")
+
+@Embeddable
 public class Adresse {
 	@Column(name= "Street")
 	private String rue;

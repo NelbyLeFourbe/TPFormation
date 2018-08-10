@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -23,10 +24,9 @@ public class Eleve extends Personne {
 	private Date dtNaissance;
 	@ManyToOne
 	@JoinColumn(name = "Trainer_Id")
-	private Formateur formateur;
-	@Transient
-	@Column(name = "Computer")
-
+	private Formateur formateur;	
+	@Column (name = "Computer")
+	@OneToOne(mappedBy = "Computer")
 	private Ordinateur ordinateur;
 
 	public Eleve() {

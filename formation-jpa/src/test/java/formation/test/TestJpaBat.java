@@ -14,20 +14,24 @@ public class TestJpaBat {
 
 	public static void main(String[] args) {
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("tpformation");
-			EntityManager em = emf.createEntityManager();
-			EntityTransaction tx = em.getTransaction();
-			tx.begin();
+		//	EntityManager em = emf.createEntityManager();
+			//EntityTransaction tx = em.getTransaction();
+			//tx.begin();
 
-			List<Ordinateur> ordinateurs = em.createQuery("select c from  Computer c", Ordinateur.class).getResultList();
+			//List<Ordinateur> ordinateurs = em.createQuery("select c from  Computer c", Ordinateur.class).getResultList();
 
-			for (Ordinateur ordinateur : ordinateurs) {
-				System.out.println(ordinateur.getCode());
-			}
+		//	for (Ordinateur ordinateur : ordinateurs) {
+			//	System.out.println(ordinateur.getCode());
+			//}
 
-			tx.commit();
-			em.close();
+			//tx.commit();
+			//em.close();
 			emf.close();
-		}
 	}
+}
+
+
+		
+	
 
 
