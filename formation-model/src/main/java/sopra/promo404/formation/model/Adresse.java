@@ -1,5 +1,8 @@
 package sopra.promo404.formation.model;
 
+import javax.persistence.Entity;
+
+@Entitys
 public class Adresse {
 	private String rue;
 	private String codePostal;

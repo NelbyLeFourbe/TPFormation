@@ -1,9 +1,23 @@
 package sopra.promo404.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "Computers")
 public class Ordinateur {
+	@Id
+	@Column(name = "Code", length = 10, nullable = false)
 	private String code;
+	@Column(name = "Ram", length = 10, nullable = false)
 	private int ram;
+	@Column(name = "Ssd", nullable = false)
 	private boolean ssd;
+	@Transient
+	@Column(name = "Eleve", length = 100)
 	private Eleve eleve;
 
 	public Ordinateur() {
