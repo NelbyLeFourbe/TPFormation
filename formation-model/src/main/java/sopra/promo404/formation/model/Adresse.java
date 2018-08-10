@@ -2,6 +2,10 @@ package sopra.promo404.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
+import javax.persistence.UniqueConstraint;
 
 
 @Embeddable
@@ -14,17 +18,33 @@ public class Adresse {
 	private String ville;
 	@Column(name= "Country")
 	private String pays;
+	@OneToOne
+	@JoinTable(name = "Computer_Student", uniqueConstraints = @UniqueConstraint(columnNames = { "Computeur_Code", "Student_Id" }),
+	joinColumns = @JoinColumn(name = "Student_Id"),
+	inverseJoinColumns = @JoinColumn(name = "Computeur_Code"))
+	private Personne personne;
 
 	public Adresse() {
 		super();
 	}
 
-	public Adresse(String rue, String codePostal, String ville, String pays) {
+
+	public Adresse(String rue, String codePostal, String ville, String pays, Personne personne) {
 		super();
 		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.pays = pays;
+		this.personne = personne;
+	}
+
+
+	public Personne getPersonne() {
+		return personne;
+	}
+
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
 	}
 
 	public String getRue() {
