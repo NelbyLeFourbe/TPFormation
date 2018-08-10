@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -30,7 +31,9 @@ public class Matiere {
 	@Column(name = "Difficulty")
 	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
+	@Transient
 	private Set<Matiere> matieres = new HashSet<>();
+	@Transient
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {

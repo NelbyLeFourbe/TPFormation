@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 @DiscriminatorValue("Trainer")
@@ -16,7 +18,9 @@ public class Formateur extends Personne {
 	private boolean referent;
 	@Column(name = "Experience")
 	private int experience;
+	@OneToMany(mappedBy="formateur")
 	private List<Eleve> eleves = new ArrayList<>();
+	@Transient
 	private Set<Matiere> matieres = new HashSet<>();
 
 	public Formateur() {

@@ -16,6 +16,7 @@ public class Formation {
 	private FormationId id;
 	@Column(name = "Duration")
 	private int duree;
+	@Transient
 	private List<Matiere> matieres = new ArrayList<>();
 
 	public Formation() {
