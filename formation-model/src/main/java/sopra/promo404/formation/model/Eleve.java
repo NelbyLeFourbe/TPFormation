@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-@Entity
+//@Entity
 @Table(name = "Student")
 @DiscriminatorValue("Student")
 public class Eleve extends Personne {

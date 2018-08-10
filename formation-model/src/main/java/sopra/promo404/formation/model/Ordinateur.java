@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Entity
+//@Entity
 @Table(name = "Computers")
 public class Ordinateur {
 	@Id

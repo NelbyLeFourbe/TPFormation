@@ -2,11 +2,18 @@ package sopra.promo404.formation.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @SuppressWarnings("serial")
+//@Embeddable
 public class FormationId implements Serializable {
+
+	@Column(name = "Customer")
 	private String client;
+	@Column(name = "Promo")
 	private String promotion;
 
 	public FormationId() {
