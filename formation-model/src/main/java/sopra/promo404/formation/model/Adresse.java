@@ -1,12 +1,19 @@
 package sopra.promo404.formation.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entitys
+@Entity
+@Table(name = "Adress")
 public class Adresse {
+	@Column(name= "Street")
 	private String rue;
+	@Column(name= "PostCode")
 	private String codePostal;
+	@Column(name= "City")
 	private String ville;
+	@Column(name= "Country")
 	private String pays;
 
 	public Adresse() {

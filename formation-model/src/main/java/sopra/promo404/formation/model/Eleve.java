@@ -5,7 +5,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 @Entity
@@ -13,12 +16,13 @@ import javax.persistence.Transient;
 @DiscriminatorValue("Student")
 public class Eleve extends Personne {
 	@Column (name = "Civility", nullable = false)
+	@Enumerated(EnumType.STRING)
 	private Civilite civilite;
 	@Column (name = "BirthDate", nullable = false)
 	private Date dtNaissance;
-	@Column (name = "Instructor")
-	@OneToMany
-	@Transient
+	@Column (name = "Trainer")
+	@ManyToOne
+	@JoinColumn(name = "Trainer_Id")
 	private Formateur formateur;	
 	@Transient
 	@Column (name = "Computer")
