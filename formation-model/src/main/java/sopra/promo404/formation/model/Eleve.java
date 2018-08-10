@@ -9,7 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("Student")
@@ -20,9 +20,10 @@ public class Eleve extends Personne {
 	@Column(name = "BirthDate", nullable = false)
 	private Date dtNaissance;
 	@ManyToOne
-	@JoinColumn(name="trainer_id")
+	@JoinColumn(name = "trainer_id")
 	private Formateur formateur;
-	@Transient
+	@OneToOne
+	@JoinColumn(name = "computer_code")
 	private Ordinateur ordinateur;
 
 	public Eleve() {
